@@ -1,0 +1,10 @@
+{
+    "name": "niclasleonbock/react-ftp",
+    "description": "Simple implementation of ftp syntax for react. There's no single command included, it's just a base.",
+    "require": {
+        "react/socket": "0.4.*@dev"
+    },
+    "autoload": {
+        "psr-4": { "niclasleonbock\\React\\FTP\\": "React/FTP" }
+    }
+}
