@@ -1,6 +1,6 @@
 react-ftp
 =========
-Simple implementation of ftp syntax for react. There's no single command implemented, it's just a base.
+Simple implementation of ftp syntax for react, so that you can use php for building your own ftp server. There's no single command implemented, it's just a base.
 
 Example
 =======
