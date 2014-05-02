@@ -15,14 +15,14 @@ $ftp = new niclasleonbock\React\FTP\Server($socket);
 
 // client connected
 $socket->on('connection', function ($conn) use ($ftp) {
-    print('connection: from '.$conn->getRemoteAddress()."\r\n");
+    print('connection: from ' . $conn->getRemoteAddress() . "\r\n");
 
     $conn->write($ftp->prepare("220 Welcome to FTP Server"));
 });
 
 // command received
 $ftp->on('command', function ($cmd, $data, $conn) {
-    print('command: '.$cmd.' '.implode(' ', $data)."\r\n");
+    print('command: ' . $cmd . ' ' . implode(' ', $data) . "\r\n");
 });
 
 // command handler, best point to implement parts of RfC 959 (or, if you're keen on it, the entire RfC)
@@ -32,7 +32,7 @@ $ftp->on('command:USER', function ($data, $conn) use ($ftp) {
 
 // raw data
 $ftp->on('data', function ($data, $conn) {
-    print('raw: '.$data."\r\n");
+    print('raw: ' . $data . "\r\n");
 });
 
 $socket->listen(1337);
