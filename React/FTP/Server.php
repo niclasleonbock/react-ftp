@@ -17,14 +17,10 @@ class Server extends EventEmitter
                 $this->emit('data', array($data, $conn));
 
                 $data = explode(' ', $data);
-                if (isset($data[0])) {
-                    $cmd = array_shift($data);
-                } else {
-                    $cmd = $data;
-                }
+                $cmd = isset($data[0]) ? array_shift($data) : $data;
 
                 $this->emit('command', array($cmd, $data, $conn));
-                $this->emit('command:'.$cmd, array($data, $conn));
+                $this->emit('command:' . $cmd, array($data, $conn));
             });
         });
     }
@@ -33,6 +29,6 @@ class Server extends EventEmitter
     {
         $charlist = "\r\n\0";
 
-        return trim($message, $charlist)."\r\n";
+        return trim($message, $charlist) . "\r\n";
     }
 }
